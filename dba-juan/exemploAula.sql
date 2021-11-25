@@ -21,6 +21,8 @@ CREATE TABLE trainers (
 	FOREIGN KEY (pkm_id) REFERENCES items (pkm_id)
 );
 
+DROP TABLES trainers;  # USADO APENAS PARA APAGAR TABELAS
+
 CREATE TABLE challenging (
 	enemy_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	enemy_name VARCHAR(20) NOT NULL,
@@ -29,6 +31,8 @@ CREATE TABLE challenging (
 	pkm_id INT,
 	FOREIGN KEY (pkm_id) REFERENCES items (pkm_id)
 );
+
+DROP TABLES challenging;  # USADO APENAS PARA APAGAR TABELAS
 
 CREATE TABLE team_rocket (
 	team_rocket_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -39,7 +43,7 @@ CREATE TABLE team_rocket (
 	FOREIGN KEY (pkm_id) REFERENCES items (pkm_id)
 );
 
-DROP TABLES trainers;  # USADO APENAS PARA APAGAR TABELAS
+DROP TABLES team_rocket;  # USADO APENAS PARA APAGAR TABELAS
 
 INSERT INTO trainers VALUES(1,'2022-02-20','2022-07-30 12:30:12','2020');
 
