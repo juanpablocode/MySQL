@@ -1,8 +1,10 @@
-DROP DATABASE PokemonGo;
+# DROP DATABASE PokemonGo; # APAGAR BANCO
 
-CREATE DATABASE PokemonGo;
+CREATE DATABASE PokemonGo; # CRIAR BANCO
 
 USE PokemonGo; # PARA USAR O DB RECENCRIADO
+
+# SHOW TABLES;
 
 CREATE TABLE pokemon (
 	pkm_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -12,16 +14,22 @@ CREATE TABLE pokemon (
 	pkm_price INT(3) NOT NULL
 );
 
+INSERT INTO pokemon VALUES(1,'2022-02-20','2022-07-30 12:30:12','2020');
+SELECT * FROM pokemon;
+# DROP TABLES pokemon;  # USADO APENAS PARA APAGAR TABELAS
+
 CREATE TABLE trainers (
 	player_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	player_name VARCHAR(20) NOT NULL,
 	player_life INT(3) NOT NULL,
 	player_money INT(3) NOT NULL,
 	pkm_id INT,
-	FOREIGN KEY (pkm_id) REFERENCES items (pkm_id)
+	FOREIGN KEY (pkm_id) REFERENCES pokemon (pkm_id)
 );
 
-DROP TABLES trainers;  # USADO APENAS PARA APAGAR TABELAS
+INSERT INTO trainers VALUES(1,'2022-02-20','2022-07-30 12:30:12','2020');
+SELECT * FROM trainers;
+# DROP TABLES trainers;  # USADO APENAS PARA APAGAR TABELAS
 
 CREATE TABLE challenging (
 	enemy_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -29,10 +37,11 @@ CREATE TABLE challenging (
 	enemy_life INT(3) NOT NULL,
 	enemy_money INT(3) NOT NULL,
 	pkm_id INT,
-	FOREIGN KEY (pkm_id) REFERENCES items (pkm_id)
+	FOREIGN KEY (pkm_id) REFERENCES pokemon (pkm_id)
 );
-
-DROP TABLES challenging;  # USADO APENAS PARA APAGAR TABELAS
+INSERT INTO challeging VALUES(1,'2022-02-20','2022-07-30 12:30:12','2020');
+SELECT * FROM challenging;
+# DROP TABLES challenging;  # USADO APENAS PARA APAGAR TABELAS
 
 CREATE TABLE team_rocket (
 	team_rocket_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -40,13 +49,11 @@ CREATE TABLE team_rocket (
 	enemy_life INT(3) NOT NULL,
 	enemy_money INT(3) NOT NULL,
 	pkm_id INT,
-	FOREIGN KEY (pkm_id) REFERENCES items (pkm_id)
+	FOREIGN KEY (pkm_id) REFERENCES pokemon (pkm_id)
 );
 
-DROP TABLES team_rocket;  # USADO APENAS PARA APAGAR TABELAS
+INSERT INTO team_rocket VALUES(1,'2022-02-20','2022-07-30 12:30:12','2020');
+SELECT * FROM team_rocket;
+# DROP TABLES team_rocket;  # USADO APENAS PARA APAGAR TABELAS
 
-INSERT INTO trainers VALUES(1,'2022-02-20','2022-07-30 12:30:12','2020');
-
-SELECT * FROM trainers;
-
-SELECT * FROM trainers;
+SELECT * FROM team_rocket;
